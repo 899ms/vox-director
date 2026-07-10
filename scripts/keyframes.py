@@ -37,7 +37,10 @@ def run(project_dir):
     style = doc.get("style", "painterly")
     theme = resolve_theme(doc.get("theme")) or {}   # theme preset -> full look bundle
     collage_style = theme.get("idiom") or doc.get("collage_style", "american-retro")
-    t_palette, t_type, t_finish = theme.get("palette"), theme.get("type_style"), theme.get("finish")
+    # a registered theme wins; a custom (unregistered) theme may set these at doc level
+    t_palette = theme.get("palette") or doc.get("palette")
+    t_type = theme.get("type_style") or doc.get("type_style")
+    t_finish = theme.get("finish") or doc.get("finish")
     era = doc.get("era")            # only needed for the painterly (per-dynasty) style
     kf_dir = os.path.join(project_dir, "keyframes")
     os.makedirs(kf_dir, exist_ok=True)
