@@ -2,9 +2,10 @@
 """
 Audio stage: per-beat narration (one consistent voice) + one instrumental BGM.
 
-Narration uses Seed-Audio's instruct style: a fixed voice descriptor is given
-before `says:` so only the quoted line is spoken, in the same voice every beat
-(this is how vox-director sidesteps Omni's clip-to-clip voice drift).
+Narration uses xai/tts-v1 (a real multilingual TTS: named `voice_id` + language),
+so every beat is spoken in the same voice — this sidesteps Omni's clip-to-clip
+voice drift. Seed-Audio was tried and dropped: as a general *sound* model it gave
+wildly inconsistent narration lengths unless a speaker is pinned (see VOICE_MODEL).
 
 Usage: python3 audio.py <project_dir>   (default: out/tang-30s)
 """
