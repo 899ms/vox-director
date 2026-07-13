@@ -108,6 +108,7 @@ AGENTS.md             entry point for non-Claude agents (Codex, …)
 references/           the creative engine
   prompt-guide.md       the LOOK layer — prompt structures, vocab & 8 theme presets
   beat-layer.md         14 narrative arcs + hook/pacing + shot patterns
+  voices.md             xai/tts voice roster — pick a voice_id per language/tone
   models-and-gotchas.md every API / ffmpeg gotcha, already solved
   local-engine.md       the advanced element-level motion engine
 scripts/              one script per pipeline stage

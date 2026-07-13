@@ -98,9 +98,11 @@ This is the default, most-automated path. Every stage is one script, all driven 
    `"video_model": "kwaivgi/kling-video-o3-pro/image-to-video"`.
 
 5. **Voice + music.** `python3 scripts/audio.py out/<project>`
-   One consistent narrator via **xai/tts-v1** (multilingual, `voice_id`) + instrumental BGM
-   via **minimax/music-2.6**. (Do NOT use seed-audio for plain narration unless you pin a
-   speaker — see gotchas.)
+   One consistent narrator via **xai/tts-v1** + instrumental BGM via **minimax/music-2.6**.
+   **Pick `voice_id` to fit the topic + language** (don't just keep the default) — see
+   `references/voices.md` for the full roster (5 multilingual + ~66 native voices by language,
+   with gender). Default `leo` (male, documentary). (Do NOT use seed-audio for plain narration
+   unless you pin a speaker — see gotchas.)
 
 6. **Assemble.** `python3 scripts/assemble.py out/<project>`
    ffmpeg: normalize + concat all shots, lay the single narration ducked under the music,
@@ -143,7 +145,7 @@ Add a `shots` array to each beat (see schema). Give each shot its own short `sce
   "video_resolution": "720p",             // 720p (default); Seedance also 480p/1080p (Omni is 720p-only)
   "motion_style": "punchy",               // amplitude: calm | punchy | max (theme sets a default)
   "constraints": "strict",                // strict = defect guards on | loose = let AI explore + re-roll
-  "voice": {"voice_id": "leo", "language": "en", "speed": 1.0},
+  "voice": {"voice_id": "leo", "language": "en", "speed": 1.0},  // pick per topic/language — see references/voices.md
   "music": "epic cinematic orchestral, instrumental, no vocals",
   "mix": {"music": 0.6, "voice": 1.25},   // audio balance — optional; these are the defaults (BGM ducks under the VO)
   "watermark": "Made with Atlas Cloud",

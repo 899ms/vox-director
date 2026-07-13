@@ -77,7 +77,7 @@ Vox 拼贴的**样子**和**动效**是两件事、两步:
    `"video_model": "kwaivgi/kling-video-o3-pro/image-to-video"`。
 
 5. **旁白 + 配乐。** `python3 scripts/audio.py out/<project>`
-   用 **xai/tts-v1** 出单一音色旁白(多语言,`voice_id`)+ 用 **minimax/music-2.6** 出器乐 BGM。
+   用 **xai/tts-v1** 出单一音色旁白 + **minimax/music-2.6** 出器乐 BGM。**按主题+语种挑 `voice_id`**(别只用默认)—— 见 `references/voices.md`(5 个多语种 + ~66 个各语种母语音色,标了性别);默认 `leo`(男、纪录片感)。
    (普通旁白**别用 seed-audio**,除非指定 speaker——见踩坑。)
 
 6. **合成。** `python3 scripts/assemble.py out/<project>`
@@ -113,7 +113,7 @@ Vox 拼贴的**样子**和**动效**是两件事、两步:
   "video_resolution": "720p",             // 720p(默认);Seedance 可 480p/1080p(Omni 仅 720p)
   "motion_style": "punchy",               // 幅度:calm | punchy | max(主题给默认)
   "constraints": "strict",                // strict = 开防缺陷护栏 | loose = 放开探索 + 抽卡
-  "voice": {"voice_id": "leo", "language": "en", "speed": 1.0},
+  "voice": {"voice_id": "leo", "language": "en", "speed": 1.0},  // 按主题/语种挑 —— 见 references/voices.md
   "music": "epic cinematic orchestral, instrumental, no vocals",
   "mix": {"music": 0.6, "voice": 1.25},   // 音量平衡(可选;这是默认值,音乐在人声下自动让路)
   "watermark": "Made with Atlas Cloud",
